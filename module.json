@@ -1,0 +1,18 @@
+{
+  "id": "no-chat-delete",
+  "title": "No Chat Delete",
+  "description": "Prevents players from deleting chat messages.",
+  "version": "1.0.0",
+  "authors": [
+    {
+      "name": "Echiriom"
+    }
+  ],
+  "compatibility": {
+    "minimum": "12",
+    "verified": "12.331"
+  },
+  "scripts": [
+    "no-chat-delete.js"
+  ]
+}
