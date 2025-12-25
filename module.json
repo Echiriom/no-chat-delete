@@ -14,5 +14,6 @@
   },
   "scripts": [
     "no-chat-delete.js"
-  ]
+  ],
+  "download": "https://github.com/Echiriom/no-chat-delete/archive/refs/heads/main.zip"
 }
