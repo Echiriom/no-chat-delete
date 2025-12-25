@@ -1,19 +1,13 @@
-{
-  "id": "no-chat-delete",
-  "title": "No Chat Delete",
-  "description": "Prevents players from deleting chat messages.",
-  "version": "1.0.0",
-  "authors": [
-    {
-      "name": "Echiriom"
-    }
-  ],
-  "compatibility": {
-    "minimum": "12",
-    "verified": "12.331"
-  },
-  "scripts": [
-    "no-chat-delete.js"
-  ],
-  "download": "https://github.com/Echiriom/no-chat-delete/archive/refs/heads/main.zip"
-}
+Hooks.on("getChatLogEntryContext", (html, options) => {
+  const deleteOption = options.find(o => o.name === "CHAT.Delete");
+
+  if (deleteOption) {
+    deleteOption.condition = li => {
+      const messageId = li.data("messageId");
+      const message = game.messages.get(messageId);
+
+      // Apenas GM pode excluir
+      return game.user.isGM;
+    };
+  }
+});
