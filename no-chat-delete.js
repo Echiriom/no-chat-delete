@@ -1,8 +1,9 @@
-Hooks.on("renderChatMessage", (message, html) => {
-  const user = game.users.get(message.user);
+Hooks.on("getChatLogEntryContext", (html, options) => {
+  const deleteOption = options.find(o => o.name === "CHAT.Delete");
 
-  // Se NÃO for GM, remove o botão de deletar
-  if (!user?.isGM) {
-    html.find(".message-delete").remove();
+  if (deleteOption) {
+    deleteOption.condition = () => {
+      return game.user.isGM;
+    };
   }
 });
